@@ -1,0 +1,16 @@
+步骤与实现功能：
+
+##启动T256相机与D435i相机节点与vision_to_mavros节点，实现PX4的视觉定位
+
+roslaunch vision_to_mavros t265_all_nodes.launch
+
+##启动建图节点，基于相机的定位于深度图生成全局点云
+roslaunch mapping map.launch
+
+##启动fast planner实现规划
+roslaunch plan_manage px4_kino_replan.launch
+
+
+
+jetpack 4.6
+jetson tx2刷机教程

@@ -1,0 +1,9 @@
+<launch>
+    <arg name="config_path_map" default = "$(find mapping)/config/mynt_113.yaml" />
+
+    <node name="mapping" pkg="mapping" type="mapping">
+        <param name="config_file" type="string" value="$(arg config_path_map)" />
+    </node>
+   
+</launch>
+

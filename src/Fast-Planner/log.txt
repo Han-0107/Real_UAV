@@ -1,0 +1,37 @@
+In my environment 
+I gonna simulate the px4 at gazebo and the simulation packages, which HKUST-Aerial-Robotics made, makes build error, 
+so I deleted the packages without /Fast-Planner/uav_simulator/Utils/waypoint_generator
+
+And I worked at the /Fast-Planner/fast_planner/plan_manage/launch
+Not to edit the original launch files, I added copies, which names like 'px4_~~~', and edited for my drone
+
+So 'px4_~~~' launch files are to run the fast planner at the PX4 drone with D435 and T265
+
+//- for simulation in gazebo : I followed this https://discuss.px4.io/t/create-custom-model-for-sitl/6700/4
+//(1) change if you want ~~/PX4-Autopilot/Tools/sitl_gazebo/models/depth_camera
+//(2) add ~~/PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/airframes/1024_iris_depth_camera
+//    '1024_iris_depth_camera' file is in sorage folder and it is just to get the depth topic from sitl_px4
+//(3) add 'iris_depth_camera' at ~~/PX4-Autopilot/pltforms/posix/cmake/sitl_target.cmake at 'set(models '
+//(4) cd ~~/PX4-Autopilot && make px4_sitl gazebo_iris_depth_camera
+//then u can simulate the px4 with depth camera
+//example) roslaunch px4 mavros_posix_sitl.launch vehicle:=iris_depth_camera
+//
+// this parts need to setup the tf and something more, so mayb i gonna make it later
+
+
+and the original fast planner is make everything in 'world' frame
+but I used 'map' frame
+so edited some parts
+
+
+** when i launch it
+
+change "world" to "map"
+
+
+"What did I do list"
+change "world" to "map"
+change topic names for my setting
+
+
+I tried to conserve the original code but it is not easy So I editied the original code

@@ -1,0 +1,8 @@
+prefix=/home/le/catkin_ws/devel
+
+Name: vision_to_mavros
+Description: Description of vision_to_mavros
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

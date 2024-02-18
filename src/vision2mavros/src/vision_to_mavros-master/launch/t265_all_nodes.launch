@@ -1,0 +1,15 @@
+<launch>
+    <!-- Launch 3 nodes as below
+    At development stage, each node should be launched in a separated terminal to view the output -->
+
+    <!-- This node will launch the ROS driver for Realsense T265 -->
+    <include file="$(find realsense2_camera)/launch/rs_d400_and_t265.launch"/>
+
+    <!-- This node will launch MAVROS -->
+    <arg name="fcu_url" default="/dev/ttyUSB0:921600"/>
+    <include file="$(find mavros)/launch/px4.launch">
+      <arg name="fcu_url" value="$(arg fcu_url)" />
+    </include>
+    <!-- This node will launch the node that bridges realsense-ros and MAVROS -->
+    <include file="$(find vision_to_mavros)/launch/t265_tf_to_mavros.launch"/>
+</launch>

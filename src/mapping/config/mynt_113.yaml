@@ -1,0 +1,42 @@
+%YAML:1.0
+#common parameters
+
+rgb_topic: "/d400/color/image_raw"
+pose_topic: "/t265/odom/sample"
+#pose_topic: "/pose_graph/pose_graph_path"
+depth_topic: "/d400/depth/image_rect_raw"
+#depth_topic: "/d400/depth/color/points"
+
+pcl_voxel_resolution: 0.02
+
+internalDistortion: !!opencv-matrix
+   rows: 1
+   cols: 4
+   dt: d
+   # k1 k2 p1 p2
+   data: [-0.003360799586272623, 0.00046580227840787653, -3.619091234587951e-05, -0.0007161045230535519]
+   
+internalProjection: !!opencv-matrix
+   rows: 3
+   cols: 3
+   dt: d
+   # [fx 0 cx; 0 fy cy; 0 0 1]
+   data: [383.9127197265625,0                     ,322.2144470214844,
+          0                     ,383.9127197265625,242.5172119140625,
+          0                     ,0                     ,1        ]
+
+
+#Rotation from camera frame to imu frame, imu^R_cam
+extrinsicRotation: !!opencv-matrix
+   rows: 3
+   cols: 3
+   dt: d
+   data: [-0.0020851,-0.0357302, 0.9993593,
+           0.9998313, 0.0181645, 0.0027355,
+          -0.0182506, 0.9991964, 0.0356863]
+#Translation from camera frame to imu frame, imu^T_cam
+extrinsicTranslation: !!opencv-matrix
+   rows: 3
+   cols: 1
+   dt: d
+   data: [0.07085858, -0.01932318, 0.03805317]

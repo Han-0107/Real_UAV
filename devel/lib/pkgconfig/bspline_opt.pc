@@ -1,0 +1,8 @@
+prefix=/home/le/catkin_ws/devel
+
+Name: bspline_opt
+Description: Description of bspline_opt
+Version: 0.0.0
+Cflags: -I/home/le/catkin_ws/src/Fast-Planner/fast_planner/bspline_opt/include
+Libs: -L${prefix}/lib -lbspline_opt
+Requires: plan_env

@@ -1,0 +1,8 @@
+prefix=/home/le/catkin_ws/install
+
+Name: plan_manage
+Description: Description of plan_manage
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -lplan_manage
+Requires: plan_env path_searching bspline bspline_opt traj_utils message_runtime
